@@ -11,7 +11,7 @@ page = page[page.length - 1]
         let loggedInForm = localStorage.getItem("loggedIn");
         users = JSON.parse(userInStringForm) || [];
         loggedIn = JSON.parse(loggedInForm) || [];
-        console.log(users);
+        console.log( "Users",users);
         console.log(loggedIn); 
     }
    getUsers();
@@ -25,21 +25,24 @@ page = page[page.length - 1]
       
         
 
-        userName.innerText =  loggedIn.name;
-        userEmail.innerText =  loggedIn.email;
-        userGender.innerText =  loggedIn.gender;
-        console.log("loggedIn.Name:", loggedIn);
+        userName.innerText =  loggedIn.Name;
+        userEmail.innerText =  loggedIn.Email;
+        userGender.innerText =  loggedIn.Gender;
+        console.log("loggedIn :", loggedIn); 
 
         
+       
     }
 }
 dashboard();
+
 
     const container = document.querySelector(".container"),
     pwShowHide = document.querySelectorAll(".showHidePw"),
     pwFields = document.querySelectorAll(".password"),
     signUp = document.querySelector(".signup-link"),
     login = document.querySelector(".login-link");
+
 function sign(){
     let name = document.getElementById("name")
    let email = document.getElementById("email")
@@ -84,7 +87,7 @@ function log() {
 
     for (let i = 0; i < users.length; i++) {
         if ( users[i].Email == login_email.value && users[i].Password == login_password.value) {
-            localStorage.setItem(" loggedIn", JSON.stringify(users[i]));
+            localStorage.setItem("loggedIn", JSON.stringify(users[i]));
             window.location.href="dashboard.html"
              return false;
         }
@@ -95,10 +98,21 @@ function log() {
     }
 }
 function logout() {
-    localStorage.removeItem("loggedIn");
-    window.location.href = "index.html";    
+   localStorage.removeItem("loggedIn");
+   window.location.href = "./index.html";    
 }
-    
+
+// const logout = () => {
+//     window.localStorage.clear("loggedIn");
+//     window.location.reload(true);
+//     // window.location.replace('index.html');
+//   };
+// function logout() {
+//     window.localStorage.removeItem("loggedIn");
+//    window.location.href = "./index.html";    
+// }
+
+
     
  
 
@@ -125,6 +139,8 @@ function logout() {
   })
  
   
+  
+
 
 
 
